@@ -10,10 +10,11 @@ public class ShoppingCart {
     private String customerReference;
     private boolean paymentApproved;
 
-    public ShoppingCart(LocalDateTime lastUpdate, String orderStatus,
+    public ShoppingCart(int id,LocalDateTime lastUpdate, String orderStatus,
                         String deliveryAddress, String customerReference,
                         boolean paymentApproved) {
 
+        this.id = id;
         this.lastUpdate = lastUpdate;
         this.orderStatus = orderStatus;
         this.deliveryAddress = deliveryAddress;
