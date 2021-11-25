@@ -34,13 +34,13 @@ public class AbstractDAO {
     }
 
 
-    public Connection getConnection() throws SQLException {
+    public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DatabaseCredentials.getInstance().getUrl(),
                 DatabaseCredentials.getInstance().getUser(),
                 DatabaseCredentials.getInstance().getPassword());
     }
 
-    public ShoppingCart mapShoppingCart(ResultSet resultSet) throws SQLException {
+    public static ShoppingCart mapShoppingCart(ResultSet resultSet) throws SQLException {
         return new ShoppingCart(
                 resultSet.getInt("id"),
                 resultSet.getObject("last_update",LocalDateTime.class),
@@ -52,7 +52,7 @@ public class AbstractDAO {
         );
     }
 
-    public Product mapProduct(ResultSet resultSet) throws SQLException {
+    public static Product mapProduct(ResultSet resultSet) throws SQLException {
         return new Product(
                 resultSet.getInt("id"),
                 resultSet.getString("name"),
@@ -61,7 +61,7 @@ public class AbstractDAO {
     }
 
 
-    public ShoppingCartItem mapShoppingItem(ResultSet resultSet) throws SQLException {
+    public static ShoppingCartItem mapShoppingItem(ResultSet resultSet) throws SQLException {
         return new ShoppingCartItem(
                 resultSet.getInt("id"),
                 resultSet.getInt("amount"),
